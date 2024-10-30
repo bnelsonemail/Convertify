@@ -9,6 +9,7 @@ Created on Mon Oct 28 22:51:20 2024
 User specifies distance, weight, or temperature.  Then the user can specify
 the units to convert.
 """
+import sys
 
 
 class UnitConvert:
@@ -47,3 +48,20 @@ class UnitConvert:
         else:
             print('Your entry was invalid, check your spelling and try again.')
             return self.start()
+
+    # ************* Program Ending Logic ************************************
+
+    def question(self):
+        """Prompt user if for additional conversions or quit application."""
+        question = input('\nWould you like to convert something else, type "y"'
+                         ' for yes and "n" for no?  ')
+        if question.lower() == 'y':
+            self.start()
+        else:
+            print('\nThank you for using this application')
+            self.exit_program()
+
+    def exit_program(self):
+        """Exit the program."""
+        print("\nExiting the application.")
+        sys.exit()  # Exits the application

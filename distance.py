@@ -9,7 +9,6 @@ Created on Wed Oct 30 01:40:38 2024
 """
 
 from unit_converter import UnitConvert
-import sys
 
 
 class Distance(UnitConvert):
@@ -802,20 +801,3 @@ class Distance(UnitConvert):
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
               f"{result:,.4f} {output}.")
         self.question()
-
-    # ************* Program Ending Logic ************************************
-
-    def question(self):
-        """Prompt user if for additional conversions or quit application."""
-        question = input('\nWould you like to convert something else, type "y"'
-                         ' for yes and "n" for no?  ')
-        if question.lower() == 'y':
-            self.start()
-        else:
-            print('\nThank you for using this application')
-            self.exit_program()
-
-    def exit_program(self):
-        """Exit the program."""
-        print("\nExiting the application.")
-        sys.exit()  # Exits the application
