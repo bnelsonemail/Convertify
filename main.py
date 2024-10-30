@@ -11,7 +11,6 @@ Created on Wed Oct 30 01:49:44 2024
 
 from distance import Distance  # Import the subclass from distance.py
 
-if __name__ == "__main__":
-    distance = Distance()  # Create an instance of the subclass
-    distance.start()  # Call a method from the base class
-    distance.main()   # Call a method from the subclass
+distance = Distance()  # Create an instance of the subclass
+distance.start()  # Call a method from the base class
+distance.main()   # Call a method from the subclass

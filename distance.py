@@ -54,11 +54,11 @@ class Distance(UnitConvert):
 
             else:
                 print('Invalid entry, starting over.')
-                self.distance()
+                self.main()
 
         else:
             print('Invalid entry, please try again.')
-            self.distance()
+            self.main()
 
         user_input = u
         output = o
@@ -80,8 +80,10 @@ class Distance(UnitConvert):
                     self.km_ft(user_input, output)
                 elif output == 'yds':
                     self.km_yds(user_input, output)
-                else:
+                elif output == 'inches':
                     self.km_inches(user_input, output)
+                else:
+                    self.km_km(user_input, output)
 
             case 'mi':
                 if output == 'km':
@@ -96,8 +98,10 @@ class Distance(UnitConvert):
                     self.mi_ft(user_input, output)
                 elif output == 'yds':
                     self.mi_yds(user_input, output)
-                else:
+                elif output == 'inches':
                     self.mi_inches(user_input, output)
+                else:
+                    self.mi_mi(user_input, output)
 
             case 'm':
                 if output == 'km':
@@ -112,8 +116,10 @@ class Distance(UnitConvert):
                     self.m_ft(user_input, output)
                 elif output == 'yds':
                     self.m_yds(user_input, output)
-                else:
+                elif output == 'inches':
                     self.m_inches(user_input, output)
+                else:
+                    self.m_m(user_input, output)
 
             case 'cm':
                 if output == 'km':
@@ -128,8 +134,10 @@ class Distance(UnitConvert):
                     self.cm_ft(user_input, output)
                 elif output == 'yds':
                     self.cm_yds(user_input, output)
-                else:
+                elif output == 'inches':
                     self.cm_inches(user_input, output)
+                else:
+                    self.cm_cm(user_input, output)
 
             case 'mm':
                 if output == 'km':
@@ -144,8 +152,10 @@ class Distance(UnitConvert):
                     self.mm_ft(user_input, output)
                 elif output == 'yds':
                     self.mm_yds(user_input, output)
-                else:
+                elif output == 'inches':
                     self.mm_inches(user_input, output)
+                else:
+                    self.mm_mm(user_input, output)
 
             case 'ft':
                 if output == 'km':
@@ -160,8 +170,10 @@ class Distance(UnitConvert):
                     self.ft_m(user_input, output)
                 elif output == 'yds':
                     self.ft_yds(user_input, output)
-                else:
+                elif output == 'inches':
                     self.ft_inches(user_input, output)
+                else:
+                    self.ft_ft(user_input, output)
 
             case 'yds':
                 if output == 'km':
@@ -176,8 +188,10 @@ class Distance(UnitConvert):
                     self.yds_mm(user_input, output)
                 elif output == 'ft':
                     self.yds_ft(user_input, output)
-                else:
+                elif output == 'inches':
                     self.yds_inches(user_input, output)
+                else:
+                    self.yds_yds(user_input, output)
 
             case 'inches':
                 if output == 'km':
@@ -192,8 +206,10 @@ class Distance(UnitConvert):
                     self.inches_mm(user_input, output)
                 elif output == 'ft':
                     self.inches_ft(user_input, output)
-                else:
+                elif output == 'yds':
                     self.inches_yds(user_input, output)
+                else:
+                    self.inches_inches(user_input, output)
 
     # *************** Converting Kilometers ***************************
 
@@ -203,7 +219,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1.609
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def km_m(self, user_input, output):
@@ -212,7 +228,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 1000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def km_cm(self, user_input, output):
@@ -221,7 +237,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 100_000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def km_mm(self, user_input, output):
@@ -230,7 +246,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 1_000_000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def km_ft(self, user_input, output):
@@ -239,7 +255,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1.609 * 5280
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def km_yds(self, user_input, output):
@@ -248,7 +264,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1.609 * (5280 / 3)
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def km_inches(self, user_input, output):
@@ -257,7 +273,16 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1.609 * 5280 * 12
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def km_km(self, user_input, output):
+        """Convert kilometer to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
         self.question()
 
     # ********** Converting Miles ***************************************
@@ -268,7 +293,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 1.609
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def mi_m(self, user_input, output):
@@ -277,7 +302,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 1.609 * 1000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def mi_cm(self, user_input, output):
@@ -286,7 +311,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 1.609 * 100_000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def mi_mm(self, user_input, output):
@@ -295,7 +320,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 1.609 * 1_000_000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def mi_ft(self, user_input, output):
@@ -304,7 +329,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 5280
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def mi_yds(self, user_input, output):
@@ -313,7 +338,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 5280 / 3
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def mi_inches(self, user_input, output):
@@ -322,7 +347,16 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 5280 * 12
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mi_mi(self, user_input, output):
+        """Convert miles to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
         self.question()
 
     # ***************** Converting Meters **********************************
@@ -333,16 +367,16 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def m_mi(self, user_input, output):
         """Convert meters to miles."""
         amt = float(input('\nEnter the distance you would like to have '
                           'converted:  '))
-        result = amt / 1000 * 1.609
+        result = amt / 1000 / 1.609
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def m_cm(self, user_input, output):
@@ -351,7 +385,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 100
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def m_mm(self, user_input, output):
@@ -360,7 +394,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 1000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def m_ft(self, user_input, output):
@@ -369,7 +403,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1000 * 5280
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def m_yds(self, user_input, output):
@@ -378,7 +412,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1000 * (5280 / 3)
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def m_inches(self, user_input, output):
@@ -387,7 +421,16 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1000 * 5280 * 12
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def m_m(self, user_input, output):
+        """Convert meters to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
         self.question()
 
     # ************* Convert Centimeters ************************************
@@ -398,7 +441,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 100_000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def cm_mi(self, user_input, output):
@@ -407,7 +450,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / (100_000 / 1.609)
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def cm_m(self, user_input, output):
@@ -416,7 +459,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 100
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def cm_mm(self, user_input, output):
@@ -425,7 +468,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt * 10
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def cm_ft(self, user_input, output):
@@ -434,7 +477,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / (100_000 / 1.609) * 5280
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def cm_yds(self, user_input, output):
@@ -443,7 +486,7 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / ((100_000 / 1.609) * 5280 / 3)
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
         self.question()
 
     def cm_inches(self, user_input, output):
@@ -452,7 +495,16 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 2.54
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def cm_cm(self, user_input, output):
+        """Convert centimeters to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 2.54
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
         self.question()
 
     # ************* Convert Millimeters ************************************
@@ -463,7 +515,292 @@ class Distance(UnitConvert):
                           'converted:  '))
         result = amt / 1_000_000
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
-              f"{result:,.2f} {output}.")
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mm_mi(self, user_input, output):
+        """Convert millimeters to miles."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 1_000_000 / 1.609
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mm_m(self, user_input, output):
+        """Convert millimeters to meters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 1_000
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mm_cm(self, user_input, output):
+        """Convert millimeters to centimeters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 10
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mm_ft(self, user_input, output):
+        """Convert millimeters to feet."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 1_000_000 / 1.609 * 5280
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mm_yds(self, user_input, output):
+        """Convert millimeters to yards."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 1_000_000 / 1.609 * 5280 / 3
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mm_inches(self, user_input, output):
+        """Convert millimeters to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 1_000_000 / 1.609 * 5280 * 12
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def mm_mm(self, user_input, output):
+        """Convert millimeters to milliimeters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    # ********************* Convert Feet ************************************
+
+    def ft_km(self, user_input, output):
+        """Convert feet to kilometers."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 5280 * 1.609
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def ft_mi(self, user_input, output):
+        """Convert feet to miles."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 5280
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def ft_cm(self, user_input, output):
+        """Convert feet to centimeters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12 * 2.54
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def ft_mm(self, user_input, output):
+        """Convert feet to millimeter."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12 * 2.54 * 10
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def ft_m(self, user_input, output):
+        """Convert feet to meters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12 * 2.54 / 100
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def ft_yds(self, user_input, output):
+        """Convert feet to yards."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 3
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def ft_inches(self, user_input, output):
+        """Convert feet to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def ft_ft(self, user_input, output):
+        """Convert feet to feet."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    # *********************** Convert Yards *********************************
+
+    def yds_km(self, user_input, output):
+        """Convert yds to kilometers."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 3 / 5280 * 1.609
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def yds_mi(self, user_input, output):
+        """Convert yds to miles."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 3 / 5280
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def yds_m(self, user_input, output):
+        """Convert yds to meters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 5280 * 1.609 * 1000
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def yds_cm(self, user_input, output):
+        """Convert yds to centimeters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 5280 * 1.609 * 100_000
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def yds_mm(self, user_input, output):
+        """Convert yds to millimeters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 5280 * 1.609 * 1_000_000
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def yds_ft(self, user_input, output):
+        """Convert yds to feet."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt * 3
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def yds_inches(self, user_input, output):
+        """Convert yds to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt * 3 * 12
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def yds_yds(self, user_input, output):
+        """Convert yds to yards."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    # ************************ Convert Inches *******************************
+
+    def inches_km(self, user_input, output):
+        """Convert inches to kilometers."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12 / 5280 * 1.609
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def inches_mi(self, user_input, output):
+        """Convert inches to miles."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12 / 5280
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def inches_m(self, user_input, output):
+        """Convert inches to meters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12 / 5280 * 1.609 * 1_000
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def inches_cm(self, user_input, output):
+        """Convert inches to centimeters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt * 2.54
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def inches_mm(self, user_input, output):
+        """Convert inches to millimeters."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt * 2.54 / 10
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def inches_ft(self, user_input, output):
+        """Convert inches to feet."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def inches_yds(self, user_input, output):
+        """Convert inches to yds."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt / 12 / 3
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
+        self.question()
+
+    def inches_inches(self, user_input, output):
+        """Convert inches to inches."""
+        amt = float(input('\nEnter the distance you would like to have '
+                          'converted:  '))
+        result = amt
+        print(f"\nTo convert {amt} {user_input}, the equivalent is "
+              f"{result:,.4f} {output}.")
         self.question()
 
     # ************* Program Ending Logic ************************************
