@@ -1,71 +1,42 @@
 """
-Unit Converter.
+Unit Converter Base Class.
 
-Spyder Editor.
-
-Created on Mon Oct 28 22:51:20 2024
-@author: BRICE NELSON
-
-User specifies distance, weight, or temperature.  Then the user can specify
-the units to convert.
+Defines the base class for the unit converter program, providing a history
+tracking feature for conversions.
 """
-import sys
 
 
 class UnitConvert:
-    """Class to convert units of various distances, temps, and weights."""
+    """
+    Base class for unit conversions.
+
+    This class provides a structure for unit conversions and includes a
+    history tracker for each conversion instance.
+
+    Attributes
+    ----------
+    conversion_history : list
+        A list that stores tuples of user input and output unit choices.
+    """
 
     def __init__(self):
-        """Initialize the unit converter with default values."""
-        # Example attributes
-        self.conversion_history = []  # To track conversion history
-        # A default unit for conversions, could be anything
-        self.default_unit = "km"
-
-    def start(self):
-        """
-        Start the program.  Prompt the user to identify what class they.
-
-        would like to convert, such as: distance, temperature, or weight.
-        """
-        menu = input("\nPlease identify what type of unit you would like "
-                     "to convert, \nplease choose from the following: "
-                     "distance, temperature, or weight:  ")
-        print('')
-
-        if menu.lower() == 'distance':
-            # Create an instance of Distance and call its main method
-            from distance import Distance
-            distance = Distance()
-            distance.main()
-
-        elif menu.lower() == 'temperature':
-            from temperature import Temperature
-            temperature = Temperature()
-            temperature.main()
-
-        elif menu.lower() == 'weight':
-            from weight import Weight
-            weight = Weight()
-            weight.main()
-
-        else:
-            print('Your entry was invalid, check your spelling and try again.')
-            return self.start()
-
-    # ************* Program Ending Logic ************************************
+        """Initialize the UnitConvert class with empty conversion history."""
+        self.conversion_history = []
 
     def question(self):
-        """Prompt user if for additional conversions or quit application."""
-        question = input('\nWould you like to convert something else, type "y"'
-                         ' for yes and "n" for no?  ')
-        if question.lower() == 'y':
-            self.start()
-        else:
-            print('\nThank you for using this application')
-            self.exit_program()
+        """
+        Prompt the user for additional conversions or to quit.
 
-    def exit_program(self):
-        """Exit the program."""
-        print("\nExiting the application.")
-        sys.exit()  # Exits the application
+        If the user wishes to continue, it prompts them to choose a new
+        conversion type.
+        """
+        question = input(
+            '\nWould you like to convert something else? Type "y" for yes or '
+            '"n" for no: '
+        ).strip().lower()
+
+        if question == 'y':
+            from main import start_conversion
+            start_conversion()
+        else:
+            print('\nThank you for using this application.')
