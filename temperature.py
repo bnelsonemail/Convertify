@@ -31,6 +31,8 @@ class Temperature(UnitConvert):
         if output not in ['C', 'F', 'K']:
             print('Invalid entry, starting over.')
             return self.main()
+        else:
+            self.route_conversion(user_input, output)
 
         self.conversion_history.append((user_input, output))
 

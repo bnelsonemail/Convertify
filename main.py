@@ -12,7 +12,8 @@ from weight import Weight
 
 def start_conversion():
     """
-    Start the conversion process by prompting the user to choose a conversion
+    Start the conversion process by prompting the user to choose a conversion.
+
     type.
 
     Based on the user's choice, instantiate the appropriate class and call
