@@ -640,7 +640,7 @@ class Distance(UnitConvert):
         """Convert feet to inches."""
         amt = float(input('\nEnter the distance you would like to have '
                           'converted:  '))
-        result = amt / 12
+        result = amt * 12
         print(f"\nTo convert {amt} {user_input}, the equivalent is "
               f"{result:,.4f} {output}.")
         self.question()
