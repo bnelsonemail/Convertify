@@ -39,8 +39,10 @@ class UnitConvert:
             distance = Distance()
             distance.main()
 
-        # elif menu.lower() == 'temperature':
-        #     temperature.main()
+        elif menu.lower() == 'temperature':
+            from temperature import Temperature
+            temperature = Temperature()
+            temperature.main()
 
         # elif menu.lower() == 'weight':
         #     weight.main()

@@ -82,24 +82,127 @@ class Temperature(UnitConvert):
         match user_input:
             case 'c':
                 if output == 'f':
-                    self.c_f()
+                    self.c_f(user_input, output)
                 elif output == 'k':
-                    self.c_k()
+                    self.c_k(user_input, output)
                 else:
-                    self.c_c()
+                    self.c_c(user_input, output)
             case 'f':
                 if output == 'c':
-                    self.f_c()
+                    self.f_c(user_input, output)
                 elif output == 'k':
-                    self.f_k()
+                    self.f_k(user_input, output)
                 else:
-                    self.f_f()
+                    self.f_f(user_input, output)
             case 'k':
                 if output == 'c':
-                    self.k_c()
+                    self.k_c(user_input, output)
                 elif output == 'f':
-                    self.k_f()
+                    self.k_f(user_input, output)
                 else:
-                    self.k_k()
+                    self.k_k(user_input, output)
 
-    def
+    # *************** Convert From Celsius ***************************************
+
+    def c_f(self, user_input, output):
+        """Convert Celsius to Fahrenheit."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = (temp * 9/5) + 32
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    def c_k(self, user_input, output):
+        """Convert Celsius to Kelvin."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = temp + 273.15
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    def c_c(self, user_input, output):
+        """Convert Celsius to Celsius."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = temp
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    # **************** Convert From Fahrenheit *******************************
+
+    def f_c(self, user_input, output):
+        """Convert Fahrenheit to Celsius."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = (temp - 32) * 5/9
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    def f_k(self, user_input, output):
+        """Convert Fahrenheit to Kelvin."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = (temp - 32) * 5/9 + 273.15
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    def f_f(self, user_input, output):
+        """Convert Fahrenheit to Fahrenheit."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = temp
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    # ******************** Convert From Kelvin ******************************
+
+    def k_c(self, user_input, output):
+        """Convert Kelvin to Celsius."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = temp - 273.15
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    def k_f(self, user_input, output):
+        """Convert Kelvin to Fahrenheit."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = (temp - 273.15) * 9/5 + 32
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
+
+    def k_k(self, user_input, output):
+        """Convert Kelvin to Kelvin."""
+        temp = float(input('\nEnter the temperature value you would like to'
+                           ' have converted:  '))
+        result = temp
+        user_input = user_input.upper()
+        output = output.upper()
+        print(f"\nTo convert {temp} degrees {user_input}, the equivalent is "
+              f"{result:,.2f} degrees {output}.")
+        self.question()
