@@ -44,8 +44,10 @@ class UnitConvert:
             temperature = Temperature()
             temperature.main()
 
-        # elif menu.lower() == 'weight':
-        #     weight.main()
+        elif menu.lower() == 'weight':
+            from weight import Weight
+            weight = Weight()
+            weight.main()
 
         else:
             print('Your entry was invalid, check your spelling and try again.')

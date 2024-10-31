@@ -80,29 +80,44 @@ class Temperature(UnitConvert):
         self.conversion_history.append((user_input, output))
 
         match user_input:
-            case 'c':
-                if output == 'f':
-                    self.c_f(user_input, output)
-                elif output == 'k':
-                    self.c_k(user_input, output)
+            case 'kg':
+                if output == 'lb':
+                    self.kg_to_lb(user_input, output)
+                elif output == 'g':
+                    self.kg_to_g(user_input, output)
+                elif output == 'oz':
+                    self.kg_to_oz(user_input, output)
                 else:
-                    self.c_c(user_input, output)
-            case 'f':
-                if output == 'c':
-                    self.f_c(user_input, output)
-                elif output == 'k':
-                    self.f_k(user_input, output)
+                    self.kg_to_kg(user_input, output)
+            case 'lb':
+                if output == 'kg':
+                    self.lb_to_kg(user_input, output)
+                elif output == 'g':
+                    self.lb_to_g(user_input, output)
+                elif output == 'oz':
+                    self.lb_to_oz(user_input, output)
                 else:
-                    self.f_f(user_input, output)
-            case 'k':
-                if output == 'c':
-                    self.k_c(user_input, output)
-                elif output == 'f':
-                    self.k_f(user_input, output)
+                    self.lb_to_lb(user_input, output)
+            case 'g':
+                if output == 'kg':
+                    self.g_to_kg(user_input, output)
+                elif output == 'lb':
+                    self.g_to_lb(user_input, output)
+                elif output == 'oz':
+                    self.g_to_oz(user_input, output)
                 else:
-                    self.k_k(user_input, output)
+                    self.g_to_g(user_input, output)
+            case 'oz':
+                if output == 'kg':
+                    self.oz_to_kg(user_input, output)
+                elif output == 'lb':
+                    self.oz_to_lb(user_input, output)
+                elif output == 'g':
+                    self.oz_to_g(user_input, output)
+                else:
+                    self.oz_to_oz(user_input, output)
 
-    # *************** Convert From Celsius ***************************************
+    # *************** Convert From Celsius ***********************************
 
     def c_f(self, user_input, output):
         """Convert Celsius to Fahrenheit."""
